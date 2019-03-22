@@ -1,6 +1,6 @@
 <head>
   <link
-    href="https://fonts.googleapis.com/css?family=Josefin+Sans:600"
+    href="https://fonts.googleapis.com/css?family=Josefin+Sans:600,700"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="./styles/styles.css" />
@@ -11,7 +11,8 @@
 </head>
 <body>
   <script>
-    console.log(prapareData);
+    console.log(data);
+
     const width = window.innerWidth,
       height = window.innerHeight,
       maxRadius = Math.min(width, height) / 2 - 5;
@@ -25,7 +26,70 @@
 
     const y = d3.scaleSqrt().range([maxRadius * 0.1, maxRadius]);
 
-    const color = d3.scaleOrdinal(d3.schemeCategory20);
+    const color = d3.scaleOrdinal(d3.schemeCategory20b);
+
+    let dataColorScheme = {
+      dichotomies: ["yes", "no"],
+      races: [],
+      nonOrdinalCategories: [],
+      languageCategories: [],
+      ordinalCategories: [],
+      moneyCategories: [],
+      likertCategories: [],
+      frequencyCategories: []
+    };
+
+    let distillColorSchemes = (string, schemeProperty) => {
+      data.children.map(question => {
+        if (question.name.includes(string)) {
+          question.children.map(content => {
+            // console.log(content.name);
+            schemeProperty.push(content.name);
+          });
+        }
+      });
+    };
+
+    let parameterObject = {
+      data: [
+        {
+          string: "race",
+          content: dataColorScheme.races
+        },
+        {
+          string: "language",
+          content: dataColorScheme.languageCategories
+        },
+        {
+          string: "without any",
+          content: dataColorScheme.nonOrdinalCategories
+        },
+        {
+          string: "school",
+          content: dataColorScheme.ordinalCategories
+        },
+        {
+          string: "combined income",
+          content: dataColorScheme.moneyCategories
+        },
+        {
+          string: "stressed",
+          content: dataColorScheme.likertCategories
+        }
+      ]
+    };
+
+    parameterObject.data.map(parameters => {
+      distillColorSchemes(parameters.string, parameters.content);
+    });
+
+
+
+    console.log(dataColorScheme);
+
+    console.log(color(dataColorScheme.languageCategories));
+
+    // console.log(color);
 
     const partition = d3.partition();
 
@@ -53,7 +117,7 @@
     };
 
     const textFits = d => {
-      const CHAR_SPACE = 6;
+      const CHAR_SPACE = 15;
 
       const deltaAngle = x(d.x1) - x(d.x0);
       const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
@@ -91,7 +155,7 @@
           d3.event.stopPropagation();
           focusOn(d);
         });
-      console.log(dataset);
+      // console.log(dataset);
       newSlice
         .append("title")
         .text(d => d.data.name + "\n" + formatNumber(d.value));
@@ -99,7 +163,21 @@
       newSlice
         .append("path")
         .attr("class", "main-arc")
-        .style("fill", d => color((d.children ? d : d.parent).data.name))
+        .attr("id", (d, i) => {
+          return `arc${i}`;
+        })
+        .style("fill", (d, i) => {
+          // console.log(i);
+
+          // if (i === 0) {
+          //   return "#b5cf6b";
+          // }
+          // console.log(color(d));
+          // console.log(color(d.parent));
+          // console.log(color(d.parent.data.name));
+          // console.log(color((d.children ? d : d.parent).data.name));
+          return color((d.children ? d : d.parent).data.name);
+        })
         .attr("d", arc);
 
       newSlice
@@ -171,6 +249,7 @@
       }
     }
 
-    renderSurvey(prapareData);
+    // renderSurvey(prapareData);
+    renderSurvey(data);
   </script>
 </body>
