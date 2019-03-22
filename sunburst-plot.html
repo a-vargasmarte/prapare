@@ -1,29 +1,9 @@
 <head>
-  <style>
-    body {
-      font-family: Sans-serif;
-      font-size: 11px;
-    }
-
-    .slice {
-      cursor: pointer;
-    }
-
-    .slice .main-arc {
-      stroke: #fff;
-      stroke-width: 1px;
-    }
-
-    .slice .hidden-arc {
-      fill: none;
-    }
-
-    .slice text {
-      pointer-events: none;
-      dominant-baseline: middle;
-      text-anchor: middle;
-    }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css?family=Josefin+Sans:600"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./styles/styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="./data.js"></script>
@@ -92,7 +72,7 @@
       .attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`)
       .on("click", () => focusOn()); // Reset zoom on canvas click
 
-    let renderSurvey = (dataset) => {
+    let renderSurvey = dataset => {
       let surveyHierarchy = d3.hierarchy(dataset);
 
       surveyHierarchy.sum(d => d.count);
@@ -192,7 +172,5 @@
     }
 
     renderSurvey(prapareData);
-
-
   </script>
 </body>
