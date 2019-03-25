@@ -5,16 +5,16 @@ let data = {
       name: "Are you Hispanic or Latino?",
       children: [
         {
+          name: "chose not to answer",
+          count: 4
+        },
+        {
           name: "yes",
           count: 470
         },
         {
           name: "no",
           count: 922
-        },
-        {
-          name: "chose not to answer",
-          count: 4
         }
       ]
     },
@@ -401,12 +401,12 @@ let data = {
           count: 11
         },
         {
-          name: "no",
-          count: 1350
-        },
-        {
           name: "yes",
           count: 21
+        },
+        {
+          name: "no",
+          count: 1350
         }
       ]
     },
@@ -414,16 +414,16 @@ let data = {
       name: "Are you a refugee?",
       children: [
         {
-          name: "no",
-          count: 1361
+          name: "I choose not to answer",
+          count: 0
         },
         {
           name: "yes",
           count: 13
         },
         {
-          name: "I choose not to answer",
-          count: 0
+          name: "no",
+          count: 1361
         }
       ]
     },
@@ -431,6 +431,10 @@ let data = {
       name:
         "Do you feel physically and emotionally safe where you currently live?",
       children: [
+        {
+          name: "I choose not to answer",
+          count: 14
+        },
         {
           name: "yes",
           count: 1239
@@ -442,10 +446,6 @@ let data = {
         {
           name: "unsure",
           count: 53
-        },
-        {
-          name: "I choose not to answer",
-          count: 14
         }
       ]
     },
@@ -453,6 +453,10 @@ let data = {
       name:
         "In the past year, have you been afraid of your partner or ex-partner?",
       children: [
+        {
+          name: "I choose not to answer",
+          count: 0
+        },
         {
           name: "yes",
           count: 36
@@ -468,10 +472,6 @@ let data = {
         {
           name: "no partner in the past year",
           count: 288
-        },
-        {
-          name: "I choose not to answer",
-          count: 0
         }
       ]
     }
