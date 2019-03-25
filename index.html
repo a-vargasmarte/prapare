@@ -11,7 +11,7 @@
 </head>
 <body>
   <script>
-    console.log(data);
+    // console.log(data);
 
     const width = window.innerWidth,
       height = window.innerHeight,
@@ -27,14 +27,14 @@
     const y = d3.scaleSqrt().range([maxRadius * 0.1, maxRadius]);
 
     let otherColor = d3.scaleOrdinal(d3.interpolateBlues).domain([0, 10]);
-    console.log(otherColor(0));
+    // console.log(otherColor(0));
     const color = d3.scaleOrdinal(d3.schemeCategory20b);
     const categoricalColor = d3.scaleOrdinal(d3.schemeCategory10);
     const sequentialColor = d3.scaleOrdinal(d3.schemeBlues);
     const moneyColor = d3.scaleOrdinal(d3.schemeGreens);
     // console.log(d3.interpolateBlues(0.3));
     let testColor = d3.scaleSequential(d3.interpolateBlues).domain([0, 10000])
-    console.log(color(0));
+    // console.log(color(0));
     let dataColorScheme = {
       dichotomies: ["yes", "no", "chose not to answer"],
       races: [],
@@ -269,13 +269,13 @@
           });
         }
 
-        else if (i === 5) {
-          console.log(d.content);
-          d.content.map(category => {
-            console.log(d3.scaleOrdinal(d3.schemeBlues(7)));
-            // cleanSchemeObject.cleanSchemeArray.push(categoricalColor(category));
-          });
-        }
+        // else if (i === 5) {
+        //   console.log(d.content);
+        //   d.content.map(category => {
+        //     // console.log(d3.scaleOrdinal(d3.schemeBlues(7)));
+        //     // cleanSchemeObject.cleanSchemeArray.push(categoricalColor(category));
+        //   });
+        // }
       });
       // }
 
