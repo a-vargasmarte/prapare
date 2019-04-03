@@ -181,7 +181,7 @@ bars
   })
   .text(function(d) {
     // console.log(d);
-    return d.percent;
+    return `${d.percent}%`;
   })
   .style("font-weight", "bold");
 
