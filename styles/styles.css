@@ -26,33 +26,6 @@
   fill: blue;
 } */
 
-body {
-  font-family: "Arial", sans-serif;
-}
-
-.bar {
-  fill: #5f89ad;
-}
-
-.axis {
-  font-size: 20px;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  display: none;
-}
-
-.label {
-  font-size: 13px;
-}
-
 svg {
   margin-left: 300px;
-}
-
-text {
-  font-size: 16px;
-  font-weight: bolder
 }

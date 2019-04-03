@@ -93,6 +93,7 @@ svg
   .enter()
   .append("rect")
   .attr("class", "bar")
+  .attr('fill', '#5f89ad')
   .attr("width", function(d) {
     return x(d.percent);
   })
@@ -105,7 +106,10 @@ svg
 svg
   .append("g")
   .attr("transform", "translate(0," + height + ")")
+  .style('font', '17px arial')
   .call(d3.axisBottom(x));
 
 // add the y Axis
-svg.append("g").call(d3.axisLeft(y));
+svg.append("g")
+.style('font', '17px arial')
+.call(d3.axisLeft(y));
